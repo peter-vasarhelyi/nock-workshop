@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios').default;
-const nock = require('nock');
+// const nock = require('nock');
 const { expect } = require('chai');
 
 describe('simple request mocking', () => {
