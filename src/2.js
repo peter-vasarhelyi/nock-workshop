@@ -10,35 +10,35 @@ describe('advanced request mocking', () => {
 
     describe('GET requests', () => {
         it('should mock dynamically generated URLs', async () => {
-            const scope = nock(baseUrl).get(new RegExp(`^${path}\-[0-9\.]+$`, 'g')).reply(202, { test: 'body' });
+            // const scope = ;
 
             const response = await axios({ method: 'GET', baseURL: baseUrl, url: `${path}-${Math.random()}` });
             expect(response).to.have.status(202);
             expect(response.data).to.eql({ test: 'body' });
 
-            scope.done();
+            // scope.done();
         });
 
         it('should mock GET requests with dynamically generated query string', async () => {
-            const scope = nock(baseUrl).get(path).query({ hello: /^emarsys\-[0-9\.]+$/g }).reply(202, { test: 'body' });
+            // const scope = ;
 
             const response = await axios({ method: 'GET', baseURL: baseUrl, url: path, params: { hello: `emarsys-${Math.random()}` } });
             expect(response).to.have.status(202);
             expect(response.data).to.eql({ test: 'body' });
 
-            scope.done();
+            // scope.done();
         });
     });
 
     describe('POST requests', () => {
         it('should mock POST requests with dynamically generated header value', async () => {
-            const scope = nock(baseUrl).post(path).matchHeader('random-header', /0\.\d+/).reply(202, { test: 'body' });
+            // const scope = ;
 
             const response = await axios({ method: 'POST', baseURL: baseUrl, url: path, headers: { 'random-header': Math.random() } });
             expect(response).to.have.status(202);
             expect(response.data).to.eql({ test: 'body' });
 
-            scope.done();
+            // scope.done();
         });
     });
 });
